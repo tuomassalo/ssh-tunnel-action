@@ -13,7 +13,7 @@ Debugging GitHub Actions remotely can be difficult. Maybe you want to connect to
 
 ### Compatibility
 
-This Action was only tested on the **Ubuntu 24.04** runner, but it may work on other Linux based runners.
+This Action was only tested on the **Ubuntu 24.04** runner, but it may work on other Linux based runners. Both **amd64** and **arm64** architectures are supported.
 
 ### Setup
 

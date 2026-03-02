@@ -25,10 +25,14 @@ runs:
   using: composite
   steps:
     - name: Download ngrok
-      run: curl -sO https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
-      shell: bash
-    - name: Untar ngrok
-      run: tar xfz ngrok-v3-stable-linux-amd64.tgz
+      run: |
+        if [ "$RUNNER_ARCH" = "ARM64" ]; then
+          ARCH="arm64"
+        else
+          ARCH="amd64"
+        fi
+        curl -sO "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-${ARCH}.tgz"
+        tar xfz "ngrok-v3-stable-linux-${ARCH}.tgz"
       shell: bash
     - name: Add ~/.ssh directory
       run: mkdir -p ~/.ssh
